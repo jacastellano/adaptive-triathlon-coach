@@ -56,7 +56,7 @@ Weekly AI training proposals will be generated as drafts. The athlete can review
 ## Main System Inputs
 
 - List of races classified as A, B, or C targets.
-- Baseline training plan including phases, goals, weekly hours, availability, and planned sessions.
+- Baseline training plan including phases, goalsa and weekly hours.
 - Performance metrics and structured training zones by discipline.
 - Garmin activity files.
 - Link between completed activities and planned sessions.
