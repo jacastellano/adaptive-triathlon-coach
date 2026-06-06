@@ -62,12 +62,3 @@ The MVP use cases are organized into four functional groups:
 | UC-016 | Generate Plan Progress Snapshot | [uc-016-generate-plan-progress-snapshot.md](./uc-016-generate-plan-progress-snapshot.md) |
 
 ---
-
-## MVP Core Flow
-
-```text
-Setup
-→ Weekly planning
-→ Daily training log
-→ Weekly review
-→ Next weekly planning decision
