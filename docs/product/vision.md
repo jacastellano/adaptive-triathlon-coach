@@ -6,46 +6,52 @@ Adaptive Triathlon Coach
 
 ## Problem
 
-Preparing for a middle-distance or long-distance triathlon requires constantly adjusting training to the athlete’s real situation: target races, baseline plan, availability, performance metrics, completed workouts, fatigue, and personal context.
+Preparing for a middle-distance or long-distance triathlon requires constant adaptation.
 
-The problem is that many training plans are static. They may work well on paper, but they are not always easy to adapt to what actually happens week by week.
+A training plan may look good when it is created, but real preparation changes week by week: availability, fatigue, sleep, stress, soreness, missed sessions, unexpected events, completed workouts, performance metrics, and personal priorities all affect what the athlete should do next.
+
+Many training plans are too static. They define what should happen, but they do not help enough when reality differs from the plan.
 
 ## Target User
 
 The main user is an amateur triathlete preparing for a target race who wants to train in a structured but flexible way.
 
-The product is especially intended for athletes who do not simply want to complete workouts, but want to make better training decisions based on their real condition, progress, and personal priorities.
+The product is especially intended for athletes who do not simply want to complete workouts, but want to make better training decisions based on their real condition, progress, and personal context.
 
 ## Product Idea
 
 Adaptive Triathlon Coach is an AI-powered application focused on triathlon training.
 
-The application uses a baseline training plan, target races, performance metrics, subjective athlete status, and real activities imported from Garmin files to generate recommendations, reports, and adjustments adapted to the athlete’s context.
+The application uses a baseline training plan, target races, training phases, weekly goals, performance metrics, training zones, completed activities, subjective feedback, and daily athlete status to generate recommendations, reports, and planning adjustments adapted to the athlete’s context.
 
-The product does not aim to replace the athlete’s judgment. AI recommendations are proposed as decision support, and the athlete remains in control of accepting, modifying, or rejecting training adjustments.
+The product does not aim to replace the athlete’s judgment. AI recommendations are proposed as decision support, and the athlete remains in control of reviewing, adjusting, and consolidating training decisions.
 
 ## Value Proposition
 
 The application helps the athlete answer practical questions such as:
 
 - What should I train this week?
-- How does this activity fit into my training plan?
+- How should this week be adapted to my current situation?
+- How does this completed activity fit into my training plan?
+- Did I complete what was planned?
 - Am I accumulating too much training load?
-- Should I keep, reduce, or modify the planned workout?
-- How should I adjust the week based on what I have actually done?
+- Should I keep, reduce, or modify the next planned session?
 - How should fatigue, stress, sleep, soreness, or available time affect my next training decision?
+- How is the overall plan progressing so far?
+- Should next week be adjusted based on recent compliance, missed sessions, or unexpected events?
 
 The main value is not to create generic training plans, but to adapt an existing plan to the athlete’s real situation.
 
 ## MVP Focus
 
-The MVP will focus on three main capabilities:
+The MVP will focus on four main flows:
 
-1. Store a baseline training structure with target races, training weeks, and planned sessions.
-2. Analyze completed activities from Garmin files and compare them with planned sessions.
-3. Generate activity and weekly reports with summaries, compliance, observations, risks, and recommendations.
+1. Define the training context: target races, training plan, phases, weeks, performance metrics, and training zones.
+2. Generate, adjust, and consolidate weekly training proposals before they become official planned sessions.
+3. Log completed training days by importing activities, linking them to planned sessions, adding subjective feedback, and registering daily athlete status.
+4. Generate daily and weekly reports, including compliance, observations, risks, recommendations, and an overall plan progress snapshot.
 
-Weekly AI training proposals will also be supported, but they will remain separate from the official planned sessions until the user accepts them.
+Weekly AI training proposals will be generated as drafts. The athlete can review, adjust, and consolidate them before they become official planned sessions.
 
 ## Main System Inputs
 
@@ -53,16 +59,20 @@ Weekly AI training proposals will also be supported, but they will remain separa
 - Baseline training plan including phases, goals, weekly hours, availability, and planned sessions.
 - Performance metrics and structured training zones by discipline.
 - Garmin activity files.
+- Link between completed activities and planned sessions.
 - Athlete subjective status.
 - Activity subjective feedback.
+- Daily comments or relevant context provided by the athlete.
 
 For the MVP, TCX files will be prioritized first. ZIP files may be supported as containers when they include TCX or FIT files. FIT support may be added later.
 
 ## Main System Outputs
 
 - Weekly training proposal.
-- Completed activity report.
-- Weekly progress and recommendation report.
+- Consolidated weekly plan.
+- Daily training report based on completed activities, subjective feedback, and athlete status.
+- Weekly training report.
+- Plan progress snapshot showing compliance, deviations, unexpected events, injuries, and relevant context for future planning.
 - Stored history of generated reports and recommendations.
 
 ## Out of Scope for the MVP
