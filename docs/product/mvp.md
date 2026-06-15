@@ -17,6 +17,7 @@ The MVP should prove that the system can answer a practical question:
 - The user remains in control of the final training decision.
 - Recommendations must be practical, understandable, and aligned with the athlete’s context.
 - Subjective athlete status must actively influence recommendations.
+- Weekly AI training proposals remain drafts until the user consolidates them.
 - The MVP should prioritize usefulness over advanced analytics.
 - Manual input is acceptable for the first version.
 - External integrations are not required for the MVP.
@@ -198,7 +199,7 @@ The feedback will include:
   - very strong;
 - free text comment.
 
-This subjective feedback will be used together with Garmin activity data to generate the activity report and support future recommendations.
+This subjective feedback will be used together with Garmin activity data to generate the daily training report and support future recommendations.
 
 ---
 
@@ -221,7 +222,7 @@ The user may add subjective status entries when needed, especially before genera
 
 The MVP will not require mandatory daily check-ins.
 
-Weekly reports may summarize all subjective status entries registered during the week.
+Daily and weekly reports may summarize subjective status entries when available.
 
 Subjective athlete status must actively influence weekly recommendations. The system should use fatigue, sleep quality, stress, motivation, soreness, pain, available time, and free text notes to decide whether to maintain, reduce, simplify, or adjust planned training.
 
@@ -240,7 +241,8 @@ The system must generate a weekly training proposal aligned with:
 - recent completed activities;
 - performance metrics;
 - training zones;
-- subjective athlete status.
+- subjective athlete status;
+- recent reports and plan progress snapshot, when available.
 
 The proposal should include:
 
@@ -263,22 +265,28 @@ For the MVP, the user accepts or rejects the proposal as a whole. Accepting indi
 
 ---
 
-### 10. Activity Report
+### 10. Daily Training Report
 
-After importing a completed activity with its Garmin file and subjective activity feedback, the system must generate an activity report including:
+After importing one or more completed activities for a day, linking them to planned sessions when applicable, adding subjective activity feedback, and registering relevant athlete status when needed, the system must generate a daily training report including:
 
-- summary of the activity;
-- comparison with the planned session, if applicable;
+- summary of all completed activities for the day;
+- comparison with planned sessions, if applicable;
+- completed vs planned training analysis;
+- subjective feedback summary;
+- athlete status summary, when available;
 - intensity analysis;
 - relevant observations;
 - impact on the current week;
+- risks or warning signs;
 - short recommendation for the next training decision.
 
-The activity report will be generated automatically when the user adds a completed workout together with its Garmin file and subjective feedback.
+The daily training report may include one or more completed activities.
 
-The user may manually regenerate an activity report if relevant input data changes, such as subjective feedback or activity-session matching.
+The daily training report will be generated when the user adds completed workout data, Garmin files, subjective feedback, and relevant daily context.
 
-Previous versions of the activity report should be preserved.
+The user may manually regenerate a daily training report if relevant input data changes, such as subjective feedback, athlete status, activity-session matching, or imported activity data.
+
+Previous versions of the daily training report should be preserved.
 
 ---
 
@@ -302,15 +310,38 @@ The user may generate a weekly report when they consider the week completed or w
 
 ---
 
-### 12. AI Report Storage
+### 12. Plan Progress Snapshot
+
+The system must generate a plan progress snapshot showing how the overall training plan is progressing up to the current date.
+
+The snapshot should include:
+
+- completed weeks vs planned weeks;
+- weekly compliance against target training hours;
+- planned vs completed training trends;
+- missed sessions;
+- replaced or moved sessions;
+- unexpected events;
+- injuries, pain notes, or relevant warning signs;
+- accumulated deviations from the baseline plan;
+- relevant context to consider when planning the next week.
+
+The plan progress snapshot should help the athlete understand whether the plan is on track, ahead, behind, or needs adjustment.
+
+The plan progress snapshot should be available as an input when generating or adjusting future weekly training proposals.
+
+---
+
+### 13. AI Report Storage
 
 AI-generated reports will be stored.
 
 This includes:
 
 - weekly training proposals;
-- activity reports;
-- weekly reports.
+- daily training reports;
+- weekly reports;
+- plan progress snapshots.
 
 AI-generated reports will store both:
 
@@ -328,7 +359,9 @@ For the MVP, the structured part may include fields such as:
 - risks;
 - recommendation;
 - planned vs completed comparison;
-- discipline distribution, when applicable.
+- discipline distribution, when applicable;
+- compliance information, when applicable;
+- plan progress status, when applicable.
 
 The MVP will preserve generated report versions over time.
 
@@ -336,7 +369,7 @@ Keeping report versions preserves the recommendation context available at the ti
 
 ---
 
-### 13. Recommendation Safety Rules
+### 14. Recommendation Safety Rules
 
 AI recommendations must follow basic safety rules:
 
@@ -389,8 +422,11 @@ The MVP will use the following inputs:
 - performance metrics and structured training zones;
 - Garmin activity files;
 - completed activities;
+- link between completed activities and planned sessions;
 - activity subjective feedback;
-- athlete subjective status.
+- athlete subjective status;
+- daily comments or relevant context provided by the athlete;
+- stored reports and recommendation history.
 
 ---
 
@@ -399,8 +435,10 @@ The MVP will use the following inputs:
 The MVP will generate the following outputs:
 
 - weekly training proposal;
-- completed activity report;
-- weekly progress and recommendation report;
+- consolidated weekly plan;
+- daily training report;
+- weekly training report;
+- plan progress snapshot;
 - stored history of generated reports and recommendations;
 - structured report summaries for basic querying and future UI improvements.
 
@@ -415,15 +453,17 @@ The first MVP vertical slice will be:
 3. The user defines a baseline training week.
 4. The user creates planned sessions.
 5. The user registers performance metrics and training zones.
-6. The user uploads a completed Garmin activity.
-7. The user enters subjective activity feedback.
-8. The system analyzes the activity data, planned session, metrics, zones, and subjective feedback.
-9. The system generates an activity report.
-10. The user enters athlete subjective status when needed.
-11. The user generates a weekly report manually.
-12. The system compares planned and completed training and provides recommendations.
+6. The user uploads one or more completed Garmin activities.
+7. The user links completed activities to planned sessions when applicable.
+8. The user enters subjective activity feedback.
+9. The system analyzes completed activities, planned sessions, metrics, zones, and subjective feedback.
+10. The system generates a daily training report.
+11. The user enters athlete subjective status when needed.
+12. The user generates a weekly report manually.
+13. The system compares planned and completed training and provides recommendations.
+14. The system generates a plan progress snapshot.
 
-Weekly AI proposal generation may be added immediately after this first vertical slice, once the system can already store plans, activities, reports, and subjective feedback.
+Weekly AI proposal generation, adjustment, and consolidation remain part of the MVP scope, but they may be implemented after the first technical vertical slice, once the system can already store plans, activities, reports, and subjective feedback.
 
 ---
 
@@ -438,10 +478,13 @@ The MVP will be considered successful if it can:
 - store laps or intervals when available;
 - compare planned and completed training;
 - support unplanned completed activities;
-- include activity subjective feedback in activity reports;
-- include athlete subjective status in weekly recommendations;
+- include activity subjective feedback in daily training reports;
+- include athlete subjective status in daily and weekly recommendations;
 - actively adapt recommendations based on fatigue, sleep, stress, motivation, soreness, pain, and available time;
-- produce clear and actionable activity reports;
+- produce clear and actionable daily training reports;
 - produce clear and actionable weekly reports;
+- produce a useful plan progress snapshot;
+- generate weekly training proposals as drafts;
+- allow the user to review, adjust, and consolidate weekly training proposals;
 - preserve generated reports and recommendation history;
 - help the user make better training decisions without requiring excessive manual work.
