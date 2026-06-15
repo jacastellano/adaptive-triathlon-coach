@@ -35,7 +35,7 @@ The application helps the athlete answer practical questions such as:
 - How does this completed activity fit into my training plan?
 - Did I complete what was planned?
 - Am I accumulating too much training load?
-- Should I keep, reduce, or modify the next planned session?
+- Should upcoming training be kept, reduced, or modified?
 - How should fatigue, stress, sleep, soreness, or available time affect my next training decision?
 - How is the overall plan progressing so far?
 - Should next week be adjusted based on recent compliance, missed sessions, or unexpected events?
@@ -56,7 +56,7 @@ Weekly AI training proposals will be generated as drafts. The athlete can review
 ## Main System Inputs
 
 - List of races classified as A, B, or C targets.
-- Baseline training plan including phases, goalsa and weekly hours.
+- Baseline training plan including phases, goals and weekly hours.
 - Performance metrics and structured training zones by discipline.
 - Garmin activity files.
 - Link between completed activities and planned sessions.
@@ -70,7 +70,7 @@ For the MVP, TCX files will be prioritized first. ZIP files may be supported as 
 
 - Weekly training proposal.
 - Consolidated weekly plan.
-- Daily training report based on completed activities, subjective feedback, and athlete status.
+- Daily training report based on all completed activities for the day, subjective feedback, athlete status, and relevant daily context.
 - Weekly training report.
 - Plan progress snapshot showing compliance, deviations, unexpected events, injuries, and relevant context for future planning.
 - Stored history of generated reports and recommendations.
