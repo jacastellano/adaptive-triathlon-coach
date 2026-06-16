@@ -23,8 +23,8 @@ The MVP use cases are organized into four functional groups:
 
 | Use Case | Name                        | File                                                                             |
 | -------- | --------------------------- | -------------------------------------------------------------------------------- |
-| UC-001   | Manage Target Races         | [uc-001-manage-target-race.md](./uc-001-create-target-race.md)                   |
-| UC-002   | Manage Training Plan        | [uc-002-manage-training-plan.md](./uc-002-create-training-plan.md)               |
+| UC-001   | Manage Target Races         | [uc-001-manage-target-races.md](./uc-001-manage-target-races.md)                 |
+| UC-002   | Manage Training Plan        | [uc-002-manage-training-program.md](./uc-002-manage-training-program.md)         |
 | UC-003   | Create Training Phase       | [uc-003-create-training-phase.md](./uc-003-create-training-phase.md)             |
 | UC-004   | Create Training Week        | [uc-004-create-training-week.md](./uc-004-create-training-week.md)               |
 | UC-005   | Register Performance Metric | [uc-005-register-performance-metric.md](./uc-005-register-performance-metric.md) |

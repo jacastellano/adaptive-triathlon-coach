@@ -1,4 +1,4 @@
-# UC-002 — Manage Training Program
+# UC-002: Manage Training Program
 
 ## 1. Use Case Summary
 
